@@ -3,6 +3,5 @@ Rails.application.routes.draw do
 resources :articles
 root 'pages#home'
 get 'pages/about', to: 'pages#about'
-get 'pages/map', to: 'pages#map'
 
 end
