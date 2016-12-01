@@ -1,14 +1,21 @@
 $navbar-default-bg: #4f000e;
+$navbar-inverse-ff: 'Raleway', sans-serif;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 #logo {
+		font-family: 'Raleway', sans-serif;
 		float: left;
 		font-size: 1.7em;
 		color: ffff;
 		letter-spacing: -0.5px;
 		font-weight: bold;
+}
+
+#bs-example-navbar-collapse-1{
+
+	font-family: 'Raleway', sans-serif;
 }
 
 .centre {
@@ -24,7 +31,7 @@ $navbar-default-bg: #4f000e;
 }
 
 .jumbotron h1 {
-
+	font-family: 'Raleway', sans-serif;
 	color:#ffff;
 	text-align: center;
 	margin-bottom: 30px;
@@ -32,7 +39,9 @@ $navbar-default-bg: #4f000e;
 }
 
 footer {
+	font-family: 'Raleway', sans-serif;
 	color: white;
+	margin-top: 10px;
 }
 
 /*footer ul {
