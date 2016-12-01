@@ -1,0 +1,12 @@
+<H1>Editing an Article</H1>
+
+<% if @article.errors.any? %>
+<h2>The following errors prevented the article being edited</h2>
+<% @article.errors.full_messages.each do |msg|%>
+<ul>
+<li><%= msg %></li>
+</ul>
+<% end %>
+<% end %>
+
+<%= render 'form' %>
