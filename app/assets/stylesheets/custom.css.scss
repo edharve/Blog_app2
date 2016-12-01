@@ -1,2 +1,32 @@
+$navbar-default-bg: #4f000e;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+		float: left;
+		font-size: 1.7em;
+		color: ffff;
+		letter-spacing: -0.5px;
+		font-weight: bold;
+}
+
+.centre {
+		text-align: center;
+}
+
+.jumbotron {
+	background-image: asset-url("architect2.jpg");
+	background-size: cover;
+	background-position: 75% 1%;
+	height: 550px;
+	
+}
+
+.jumbotron h1 {
+
+	color:#ffff;
+	text-align: center;
+	margin-bottom: 30px;
+
+}
