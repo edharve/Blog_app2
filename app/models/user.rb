@@ -13,5 +13,7 @@ class User < ActiveRecord::Base
 	 uniqueness: {case_sensitive: false}, 
 	 length:{minimum: 5, maximum: 100}, 
 	 format: { with: VALID_EMAIL_REGEX, message: "Enter a valid email address"}
+
+	 has_secure_password
 	
 end

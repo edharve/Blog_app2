@@ -80,6 +80,11 @@ footer {
 
  }
 
+ .article-meta {
+ 		border-top: 1px solid #eaeaea;
+ 		margin-top: 15px;
+ }
+
 
   .index-title h1{
  	font-family: 'Raleway', sans-serif;
@@ -95,7 +100,7 @@ footer {
  }
 
 
-  .artcile-description {
+  .article-description {
  	font-family: 'Raleway', sans-serif;
  	text-align: left;
 
@@ -105,21 +110,4 @@ footer {
 
 	margin-top: 10px
 }
-/*footer ul {
-float: right;
-color: white;
-list-style: none;
-}
 
-
-footer small {
-float: left;
-color: white;
-
-}
-
-footer ul li{
-float:left;
-margin-left: 15px;
-
-}*/

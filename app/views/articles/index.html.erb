@@ -7,17 +7,30 @@
 <% @articles.each do |article| %>
 <div class="row">
 <div class="col-xs-6 col-offset-2">
-<div class = "well well-md">
-<div class="article-title">
-							<h2><%= article.title %></h2></div>
-	<div class="article-architect"><%= article.architect %></div><br>
-	<div class="article-description"><%= truncate(article.description, length: 100) %></div>
+	<div class = "well well-md">
+	<div class="article-title">
+			<h2><%= article.title %></h2></div>
+	<div class="article-architect">
+			<%= article.architect %></div><br>
+	<div class="article-description">
+			<%= truncate(article.description, length: 100) %>
+	<div class="article-meta">
+				<small>
+				Created by: <%= article.user.username if article.user %>,
+				<%= time_ago_in_words(article.created_at) %> ago,
+				Updated: <%= time_ago_in_words(article.updated_at) %> ago
+	</small>
+	</div>
+	</div>
  	<br>
- 	<div class="button"><%= link_to 'Show', article_path(article),  class: 'btn btn-primary btn-sm'%>
+ 	<div class="button">
+ 	<%= link_to 'Show', article_path(article),  class: 'btn btn-primary btn-sm'%>
 	<%= link_to 'Edit', edit_article_path(article),  class: 'btn btn-primary btn-sm' %>
-	<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary btn-sm' %></div>
-</div>
-</div>
+	<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary btn-sm' %>
+		
+			</div>
+		</div>
+	</div>
 </div>
 <% end %>
 
