@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
+	belongs_to :user
+
 	validates :title, presence: true, length: {minimum: 3, maximum: 60}
 	validates :description, presence: true, length: {minimum: 3, maximum: 5000}
-		# geocoded_by :title, latitude: :lat, longitude: :lon
-		# 	after_validation :geocode, if: ->(obj){obj.title.present? and obj.title_changed? }
+	validates :user_id, presence: true
 end
