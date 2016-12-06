@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	geocoded_by :ip_address
+	after_validation :geocode
+
 	has_secure_password
 
 	 has_many :articles
