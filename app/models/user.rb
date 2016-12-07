@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
-	attr_accessor :ip_address
 	
+	def ip_address
+	@ip_address = request.remote_ip.to_s
+	end
+
+	geocoded_by :ip_address, :latitude => :lat, :longitude => :lon
+	after_validation :geocode
 
 	has_secure_password
 
@@ -19,7 +24,4 @@ class User < ActiveRecord::Base
 	 length:{minimum: 5, maximum: 100}, 
 	 format: { with: VALID_EMAIL_REGEX, message: "Enter a valid email address"}
 
-	 validates :ip_address, presence: true,
-	 length:{minimum: 7, maximum: 50}
-	
 end
