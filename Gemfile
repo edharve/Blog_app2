@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+HELP
 #em 'activerecord-session_store', '~> 0.1.2'
 
 gem 'geokit-rails'

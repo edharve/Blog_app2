@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 	geocoded_by :title
 	after_validation :geocode
+	acts_as_mappable
 
 	belongs_to :user
 
