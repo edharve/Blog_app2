@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+#em 'activerecord-session_store', '~> 0.1.2'
+
+gem 'geokit-rails'
+
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
