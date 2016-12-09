@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
 
-include Geokit::Geocoders::MultiGeocoder
-
-
 def new
 	
 end
