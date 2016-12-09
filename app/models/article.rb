@@ -1,7 +1,8 @@
 class Article < ActiveRecord::Base
 	geocoded_by :title
 	after_validation :geocode
-	acts_as_mappable
+		acts_as_mappable :lat_column_name => :latitude,
+                   		:lng_column_name => :longitude
 
 	belongs_to :user
 

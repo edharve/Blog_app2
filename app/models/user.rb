@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	
-	geocoded_by :ip_address, :latitude => :lat, :longitude => :lon
-	after_validation :geocode
+	acts_as_mappable :lat_column_name => :lat, :lng_column_name => :long
 
 	has_secure_password
 

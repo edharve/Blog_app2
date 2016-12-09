@@ -21,8 +21,5 @@ def require_user
 
 end
 
-def ip
-	@ip_address = request.remote_ip.to_s
-end
 
 end

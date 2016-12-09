@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 gem 'geokit-rails'
 
+gem 'geokit', '~> 1.10'
+
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
