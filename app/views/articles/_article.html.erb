@@ -13,17 +13,21 @@
 				Created by: <%= article.user.username if article.user %>,
 				<%= time_ago_in_words(article.created_at) %> ago,
 				Updated: <%= time_ago_in_words(article.updated_at) %> ago
-	</small>
+				</small>
 	</div>
 	</div>
  	<br>
  	<div class="button">
  	<%= link_to 'Show', article_path(article),  class: 'btn btn-primary btn-sm'%>
-	<%= link_to 'Edit', edit_article_path(article),  class: 'btn btn-primary btn-sm' %>
+ 	<% if logged_in? && current_user == article.user %>
+		<%= link_to 'Edit', edit_article_path(article),  class: 'btn btn-primary btn-sm' %>
 	<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary btn-sm' %>
-		
-			</div>
+		<% end %>
 		</div>
-	</div>
-</div>
+		</div>
+		</div>
+		</div>
+		
+
 <% end %>
+
