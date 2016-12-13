@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.paginate(page: params[:page], per_page: 5)
+		@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+  			marker.lat article.latitude
+  			marker.lng article.longitude
+  		end
 	end
 
 	def new
@@ -26,7 +30,10 @@ class ArticlesController < ApplicationController
 
 
     def show
-    	
+    	@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+  			marker.lat article.latitude
+  			marker.lng article.longitude
+  		end
      end
 
 
@@ -64,6 +71,6 @@ private
  		flash[:danger] = "You can only modify your own articles"
 		redirect_to articles_path
  	end
- end
+ end	
 
 end

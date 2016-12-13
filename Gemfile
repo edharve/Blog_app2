@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'google-api-client', '~> 0.9.13'
+
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 gem 'geokit-rails'
 
