@@ -7,8 +7,8 @@
 <div class "article-description"><%= @article.description %>
 </div></div> 
 
-<div style='width: 800px;'>
- <div id="geolocation" style='width: 800px; height: 400px;'>
+<div style='width: 570px;'>
+ <div id="geolocation" style='width: 575px; height: 400px;'>
  
 <script>
 var handler = Gmaps.build('Google');
@@ -19,7 +19,10 @@ handler.buildMap({ internal: {id: 'geolocation'} }, function(){
 });
 
 function displayOnMap(position){
-  var marker = handler.addMarker(<%=raw @hash.to_json %>);
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
   handler.map.centerOn(marker);
 };
 </script>
