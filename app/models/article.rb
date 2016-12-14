@@ -1,4 +1,14 @@
 class Article < ActiveRecord::Base
+	Geocoder::Lookup::Test.set_default_stub(
+  [
+    {
+      'latitude'     => 55.864202,
+      'longitude'    => -4.251800,
+      
+    }
+  ]
+)
+
 	geocoded_by :title
 	after_validation :geocode
 		acts_as_mappable :lat_column_name => :latitude,
@@ -9,4 +19,5 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true, length: {minimum: 3, maximum: 60}
 	validates :description, presence: true, length: {minimum: 3, maximum: 5000}
 	validates :user_id, presence: true
+
 end
