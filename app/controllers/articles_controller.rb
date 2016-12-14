@@ -7,10 +7,15 @@ class ArticlesController < ApplicationController
 
 	def index
 		@articles = Article.paginate(page: params[:page], per_page: 5)
-		@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+			
+			@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
+  			if article.latitude != "nil"
   			marker.lat article.latitude
   			marker.lng article.longitude
-  		end
+  			else
+  			@hash = {"latitude"=> 44.000000 , "longitude"=> -5.000000}		
+  			end
+  			end
 	end
 
 	def new
