@@ -1,13 +1,4 @@
 class Article < ActiveRecord::Base
-	Geocoder::Lookup::Test.set_default_stub(
-  [
-    {
-      'latitude'     => 55.864202,
-      'longitude'    => -4.251800,
-      
-    }
-  ]
-)
 
 	geocoded_by :title
 	after_validation :geocode
@@ -19,5 +10,15 @@ class Article < ActiveRecord::Base
 	validates :title, presence: true, length: {minimum: 3, maximum: 60}
 	validates :description, presence: true, length: {minimum: 3, maximum: 5000}
 	validates :user_id, presence: true
+
+	before_save :change_nil_to_default
+
+	def change_nil_to_default
+		if self.latitude == nil
+		self.latitude = "55.858325"
+		self.longitude = "-4.2884928"	
+	end
+
+	end
 
 end
