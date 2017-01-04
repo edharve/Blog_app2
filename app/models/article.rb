@@ -17,8 +17,7 @@ class Article < ActiveRecord::Base
 		if self.latitude == nil
 		self.latitude = "55.858325"
 		self.longitude = "-4.2884928"	
-	end
-
+		end
 	end
 
 end
