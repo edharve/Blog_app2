@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
 			@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
   			marker.lat article.latitude
   			marker.lng article.longitude
+  			marker.title article.title
+  			marker.infowindow article.title
   			end
 	end
 
@@ -33,6 +35,8 @@ class ArticlesController < ApplicationController
     		@hash = Gmaps4rails.build_markers(@articles) do |article, marker|
   			marker.lat article.latitude
   			marker.lng article.longitude
+  			marker.title article.title
+  			marker.infowindow article.title
   		end
      end
 

@@ -1,14 +1,15 @@
-<h1 align = "center", id="titles"><%= @user.username %></h1> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<div class = "row">
-		<div class = "col-md-4 col-md-offset-5">
+	<div class="col-md-8">
 		<br>
 			<%= gravatar_for @user, size: 150 %>
 		</div>
 	</div>
 <br>
-<h4 align = "center", id="titles"><%= @user.username %>'s Contributions</h4>
 
-<div class = "col-xs-12 col-md-offset-3">
+<h4><%= @user.username %>'s Contributions</h4>
+
+<div class = "col-md-8">
 <%= render 'articles/article', obj: @user.articles %>
 </div>
 <br>
@@ -16,3 +17,4 @@
 <%= link_to 'Create a new article', new_article_path %> |
 <%= link_to 'Back to list of contributors', users_path %>
 </div>
+</p>

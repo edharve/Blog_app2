@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "paperclip", "~> 5.0.0"
+
 gem 'google-api-client', '~> 0.9.13'
 
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
