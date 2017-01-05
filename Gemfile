@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "ruby 2.3.3"
-
 gem "paperclip", "~> 5.0.0"
 
 gem 'google-api-client', '~> 0.9.13'
