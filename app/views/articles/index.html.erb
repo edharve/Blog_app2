@@ -25,33 +25,33 @@
 								<%= will_paginate %>
 
 						<div class="row">
-<div class="col-md-8">
-	<div class = "well well-md">
-						<div class="map_container">
-  <div id="map" class="gmaps4rails_map">
-    <div id="map_canvas" class="span9"><script>
+							<div class="col-md-8">
+								<div class = "well well-md">
+													<div class="map_container">
+							  <div id="map" class="gmaps4rails_map">
+							    <div id="map_canvas" class="span9"><script>
 
-						handler = Gmaps.build('Google');
-							handler.buildMap({
-							    provider: {
-							      disableDefaultUI: true
-							      // pass in other Google Maps API options here
-							    },
-							    internal: {
-							      id: 'map'
-							    }
-							  },
-							  function(){
-							    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-							    handler.bounds.extendWith(markers);
-							    handler.fitMapToBounds();
-							  }
-							);
-				</script>
-  			</div>
-		</div>
-		</div>
-		</div>
+													handler = Gmaps.build('Google');
+														handler.buildMap({
+														    provider: {
+														      disableDefaultUI: true
+														      // pass in other Google Maps API options here
+														    },
+														    internal: {
+														      id: 'map'
+														    }
+														  },
+														  function(){
+														    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+														    handler.bounds.extendWith(markers);
+														    handler.fitMapToBounds();
+														  }
+														);
+											</script>
+							  			</div>
+									</div>
+									</div>
+									</div>
 
 <%= link_to 'Create a new article', new_article_path %>
 
