@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.3.2"
+ruby "ruby 2.3.3p222"
 
 gem "paperclip", "~> 5.0.0"
 
