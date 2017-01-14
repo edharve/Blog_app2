@@ -1,12 +1,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<script src="//maps.google.com/maps/api/js?key=AIzaSyAOa5KsMEi1ZgvMjQuvM0WesBb-JkWCYqs">
-	</script>
-<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js">
-	
-</script>
-
-<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
-
 
 <div class="row">
 <div class="col-md-6 col-offset-2">
@@ -30,13 +22,12 @@
 													<div class="map_container">
 							  <div id="map" class="gmaps4rails_map">
 							    <div id="map_canvas" class="span9"><script>
-
 													handler = Gmaps.build('Google');
-														handler.buildMap({
+													handler.buildMap({
 														    provider: {
 														      disableDefaultUI: true
-														      // pass in other Google Maps API options here
-														    },
+														      
+														      },
 														    internal: {
 														      id: 'map'
 														    }
@@ -45,9 +36,140 @@
 														    markers = handler.addMarkers(<%=raw @hash.to_json %>);
 														    handler.bounds.extendWith(markers);
 														    handler.fitMapToBounds();
-														  }
-														);
+														  });
+													
+
+													
 											</script>
+<!-- <div id="map-canvas"></div>
+<script>							  			
+$(function (){
+
+initialize();
+
+});
+
+
+var map;
+var ArrayLatLng = [];
+var ArrayOfDistance = [];
+var ArrayOfMarker = [];
+var marker;
+
+
+function initialize() {
+  var mapOptions = {
+    zoom: 3
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'You are here.'
+      });
+
+      map.setCenter(pos);
+      CrearMarcadoresEstaticos(position.coords.latitude,position.coords.longitude)
+
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  }
+  else 
+  {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function CrearMarcadoresEstaticos(lat,lng) {
+
+
+
+  ArrayLatLng.push((<% raw @hash.to_json %>));
+  ArrayLatLng.push(new google.maps.LatLng(35.679280058123894,  95.30318839999997));
+  ArrayLatLng.push(new google.maps.LatLng(-29.30112485406725, 22.353969649999968));
+  ArrayLatLng.push(new google.maps.LatLng(-32.76452253383089, -60.614780350000046));
+  ArrayLatLng.push(new google.maps.LatLng(-25.557675443684776, 133.09615714999995));
+  ArrayLatLng.push(new google.maps.LatLng(48.403410079251266, 17.607875899999968));
+  ArrayLatLng.push(new google.maps.LatLng(22.35478100426531, -12.80228035000005));
+  ArrayLatLng.push(new google.maps.LatLng(69.81106453708497, 95.12740714999997));
+  ArrayLatLng.push(new google.maps.LatLng(77.02083421130105, -40.399936600000046));
+
+    for (var i = 0; i < ArrayLatLng.length; i++) {
+
+          marker = new google.maps.Marker({
+            position: ArrayLatLng[i],
+            map: map,
+            visible:true
+            });
+          //Change visible to true for display all marker on map
+
+        ArrayOfMarker.push(marker);
+    }
+
+    for (var k = 0; k < ArrayLatLng.length; k++) {
+      ArrayOfDistance.push(google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(lat,lng), ArrayLatLng[k]));
+    }    
+
+    var lowValue = ArrayOfDistance.concat().sort(function(a, b){return a - b})[0];
+    var lowIndex = ArrayOfDistance.indexOf(lowValue);
+
+    VisibleMarker(lowIndex);
+}
+
+function VisibleMarker(index) {
+  ArrayOfMarker[index].visible = true;
+
+  //visible marker on map 
+  ZoomMarker(ArrayOfMarker[index]);
+}
+
+function ZoomMarker(m)
+{
+    var bounds = new google.maps.LatLngBounds();
+
+        point = new google.maps.LatLng(m.position.A, m.position.F);
+        bounds.extend(point);    
+    map.setCenter(bounds.getCenter());
+    map.setZoom(11);
+}
+
+
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+</script>
+ -->
+
+
+
+
+
+
+
 							  			</div>
 									</div>
 									</div>
