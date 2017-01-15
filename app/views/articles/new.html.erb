@@ -3,3 +3,11 @@
 
 <%= render 'form' %>
 
+<% if logged_in? && current_user.admin? %>
+<h4>Import Data</h4>
+<%= form_tag import_articles_path, multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import CSV" %>
+<% end %>
+<% end %>
+

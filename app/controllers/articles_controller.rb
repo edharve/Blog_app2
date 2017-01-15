@@ -61,6 +61,12 @@ class ArticlesController < ApplicationController
 		redirect_to articles_path
 	end
 
+	def import
+		Article.import(params[:file], current_user)
+		flash[:notice] = "Articles Imported"
+		redirect_to articles_path
+	end
+
 private
 	def set_article
 		@article = Article.find(params[:id])
