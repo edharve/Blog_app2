@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 
 	
 
-	validates :address, presence: true, length: {minimum: 10, maximum: 1000}
+	validates :address, presence: true, length: {minimum: 1, maximum: 1000}
 	validates :description, presence: true, length: {minimum: 3, maximum: 15000}
 	validates :user_id, presence: true
 
