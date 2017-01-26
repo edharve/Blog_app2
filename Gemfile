@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+
 gem "paperclip", "~> 5.0.0"
 
 gem 'google-api-client', '~> 0.9.13'
@@ -50,7 +52,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
    #Use postgres as the database for Active Record
-gem 'pg'
+
 end
 
 group :development do
