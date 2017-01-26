@@ -10,9 +10,9 @@ class Article < ActiveRecord::Base
 
 	
 
-	validates :title, presence: true, length: {minimum: 3, maximum: 100}
-	# validates :description, presence: true, length: {minimum: 3, maximum: 5000}
-	# validates :user_id, presence: true
+	validates :address, presence: true, length: {minimum: 10, maximum: 1000}
+	validates :description, presence: true, length: {minimum: 3, maximum: 15000}
+	validates :user_id, presence: true
 
 	before_save :change_nil_to_default
 
@@ -21,10 +21,10 @@ class Article < ActiveRecord::Base
 	
 
 	def change_nil_to_default
-		if self.latitude == nil
-			self.latitude = "55.858325"
-			self.longitude = "-4.2884928"	
-		end
+			if self.latitude == nil
+				self.latitude = "55.858325"
+				self.longitude = "-4.2884928"	
+			end
 	end
 
 	def self.import(file, user)
