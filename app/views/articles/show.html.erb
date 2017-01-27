@@ -4,7 +4,7 @@
 	</div>
 
 <div class="well col-xs-8 col-xs-offset-2">
-		<div class "article-description"><%= @article.description %>
+		<div class "article-description"><%= simple_format(@article.description) %>
 		</div>
 </div> 
 				<% if @article.image? %>
@@ -29,6 +29,34 @@
 			</div>
 		</div>
 	</div>
+						<div class="row">
+							<div class="col-xs-8 col-xs-offset-2">
+								<div class = "well well-md">
+								<div id="streetview-container">
+				 					<div id="streetViewContainer">
+											<script>
+												pos = new google.maps.LatLng( <%= @article.latitude %>, <%= @article.longitude %> );
+
+											var div = document.getElementById('streetViewContainer');
+											var sv = new google.maps.StreetViewPanorama(div);
+											sv.setPosition( pos );
+											sv.setVisible( true );
+
+											// find the heading by looking from the google car pos to the venue pos
+											var service = new google.maps.StreetViewService();
+											service.getPanoramaByLocation( pos, 6, function(result, status) {
+											    if (status == google.maps.StreetViewStatus.OK) 
+											    {   
+											        carPos = result.location.latLng;
+											        heading = google.maps.geometry.spherical.computeHeading( carPos, pos );
+											        sv.setPov( { heading: heading, pitch: 28, zoom: -500 } );
+											    }
+											} );
+											</script>
+									</div>
+								</div>
+							</div>
+						</div>
 
 
 <!-- <div class = "col-xs-8 col-xs-offset-2">

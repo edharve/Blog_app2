@@ -73,7 +73,7 @@ private
 	end
 
 	def article_params
-      params.require(:article).permit(:title, :architect, :description, :image)
+      params.require(:article).permit(:title, :architect, :description, :image, :address)
  	end	
 
  	def require_same_user
