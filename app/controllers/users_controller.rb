@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+		UserMailer.welcome_email(@user).deliver_now	
 		session[:user_id] = @user.id
 		session[:ip_address] = request.remote_ip
 	    flash[:notice] = "Welcome to the Glasgow Pevsner #{@user.username}"
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
 	end
 	
 
-	def edit
+	def edi
 		
 	end
 

@@ -45,6 +45,8 @@ gem 'will_paginate', '~> 3.1'
 
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
